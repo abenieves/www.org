@@ -7,6 +7,7 @@
             header {
                 font-size: 1.5em;
                 font-weight: bold;
+                color: rgb(255,255,0);
             }
             #all-contents {
                 max-width: 800px;
@@ -15,7 +16,7 @@
     
             /* navigation menu */
             nav {
-                background: rgb(239, 80, 41);
+                background: rgb(220, 20, 0);
                 margin: 0 auto;
                 display: flex;
                 padding: 10px;
@@ -23,7 +24,7 @@
             nav header {
                 display: flex;
                 align-items: center;
-                color: rgb(255, 255, 255);
+                color: rgb(0, 0, 0);
                 flex: 1;
             }
             nav ul {
@@ -40,7 +41,7 @@
     
             /* main container area beneath menu */
             main {
-                background: rgb(245, 238, 219);
+                background: rgb(25, 25, 25);
                 display: flex;
             }
             .sidebar {
@@ -53,7 +54,17 @@
             .content {
                 flex: 1;
                 padding: 15px;
+                color:rgb(255,255,255)
             }
             .interests header {
+                color:rgb(255 ,255 ,255);
                 font-size: 1.25em;
             }
+            img {border: #00000B 4px solid;}
+             img{
+   border-radius: 40px;
+   background: #000000B;
+}
+body {
+  background-image: url("https://storywarren.com/wp-content/uploads/2016/09/space-1.jpg");
+}
