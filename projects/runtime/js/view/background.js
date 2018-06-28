@@ -18,7 +18,7 @@ var background = function (window) {
 
         // container which will be returned
         var background;
-        
+        var tree;
         // Add any variables that will be used by render AND update here:
         
         // add objects for display inb ackground
@@ -33,17 +33,42 @@ var background = function (window) {
 
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth,canvasHeight,'yellow');
+            var backgroundFill = draw.rect(canvasWidth,canvasHeight,'pink');
             background.addChild(backgroundFill);
             
             // TODO: 3 - Add a moon and starfield
-            
+            var circle;
+            for(var i=0;i<100;i++) {
+                circle = draw.circle(10,'white','LightGray',2);
+                circle.x = canvasWidth*Math.random();
+                circle.y = groundY*Math.random();
+                background.addChild(circle);
+                var moon = draw.bitmap('img/moon.png');
+                moon.x = 490;
+                moon.y = 15;
+                moon.scaleX = 0.3;
+                moon.scaleY = 0.3;
+                background.addChild(moon);
+            }
             
             // TODO: 5 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            
+            var buildings = [];
+            var buildingHeight = 150;
+var building;
+for(var i=0;i<5;++i) {
+    building = draw.rect(65,buildingHeight,'white','black',1);
+    building.x = 200*i;
+    building.y = groundY-buildingHeight;
+    background.addChild(building);
+    buildings.push(building);
+}
             
             // TODO 4: Part 1 - Add a tree
-            
+        
+            tree = draw.bitmap('img/tree.png');
+            tree.x = 115;
+            tree.y = 100;
+            background.addChild(tree);
         }
         
         // Perform background animation
@@ -54,25 +79,33 @@ var background = function (window) {
             var canvasHeight = app.canvas.height;
             var groundY = ground.y;
             
-            // TODO 4: Part 2 - Move the tree!
-            
+                // TODO 4: Part 2 - Move the tree!
+                tree.x = tree.x - 1;
+                if(tree.x < -200) {
+                tree.x = canvasWidth;
+                }
+                
+            }
             
             // TODO 5: Part 2 - Parallax
             
+            
+            
+            
+            background = new createjs.Container();
+            background.resize = render;
+            background.update = update;
+            
+            app.addResizeable(background);
+            app.addUpdateable(background);
+            
+            render();
+            return background;
+        };
 
-        }
-
-        background = new createjs.Container();
-        background.resize = render;
-        background.update = update;
         
-        app.addResizeable(background);
-        app.addUpdateable(background);
-        
-        render();
-        return background;
     };
-};
+
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
@@ -80,3 +113,4 @@ if((typeof process !== 'undefined') &&
     // here, export any references you need for tests //
     module.exports = background;
 }
+

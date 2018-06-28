@@ -37,11 +37,11 @@ var level01 = function (window) {
       obstacleImage.x = -15;
       obstacleImage.y = -15;
       function createSawBlade(x,y) {
-          createSawBlade(100,150);
+          
+          
+  createSawBlade(100,150);
           createSawBlade(50,400);
           createSawBlade(500,300);
-          
-  // your code goes here
 }  
   }
 };
